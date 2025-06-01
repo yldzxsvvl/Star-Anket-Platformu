@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+     <link rel="icon" href="sharfi.jpg" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Misafir Memnuniyeti Anketi</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fdfaf9;
+      color: #36150f;
+      margin: 0;
+      padding: 0;
+    }
+
+    #surveyWrapper {
+      max-width: 700px;
+      margin: 40px auto;
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(97, 39, 28, 0.15);
+    }
+
+    h1 {
+      text-align: center;
+      color: #61271c;
+      margin-bottom: 30px;
+    }
+
+    .question-block {
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    textarea, select, input[type="text"], input[type="number"] {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #fff;
+      font-size: 15px;
+      box-sizing: border-box;
+      resize: vertical;
+    }
+
+    textarea:focus, select:focus, input:focus {
+      border-color: #61271c;
+      box-shadow: 0 0 0 2px rgba(97, 39, 28, 0.2);
+      outline: none;
+    }
+
+    button {
+      padding: 14px 24px;
+      margin-top: 20px;
+      margin-right: 10px;
+      background-color: #61271c;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #43180a;
+    }
+
+    #shareLink {
+      margin-top: 12px;
+      padding: 10px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="surveyWrapper">
+    <h1>🏨 Misafir Memnuniyeti Anketi</h1>
+    <form id="anketForm">
+      <div class="question-block">
+        <label for="isim">Adınız (isteğe bağlı):</label>
+        <input type="text" id="isim" name="isim" />
+      </div>
+
+      <div class="question-block">
+        <label for="konaklama">Konakladığınız otelin adı:</label>
+        <input type="text" id="konaklama" name="konaklama" required />
+      </div>
+
+      <div class="question-block">
+        <label for="temizlik">Odanın temizliği nasıldı?</label>
+        <select id="temizlik" name="temizlik" required>
+          <option value="" disabled selected>Seçiniz</option>
+          <option value="mukemmel">Mükemmel</option>
+          <option value="iyi">İyi</option>
+          <option value="orta">Orta</option>
+          <option value="kotu">Kötü</option>
+        </select>
+      </div>
+
+      <div class="question-block">
+        <label for="personel">Personel davranışları nasıldı?</label>
+        <select id="personel" name="personel" required>
+          <option value="" disabled selected>Seçiniz</option>
+          <option value="cok_yardimsever">Çok yardımsever</option>
+          <option value="yardimsever">Yardımsever</option>
+          <option value="ilgisiz">İlgisiz</option>
+          <option value="kaba">Kaba</option>
+        </select>
+      </div>
+
+      <div class="question-block">
+        <label for="hizmet">Genel hizmet kalitesini nasıl değerlendirirsiniz?</label>
+        <select id="hizmet" name="hizmet" required>
+          <option value="" disabled selected>Seçiniz</option>
+          <option value="cok_iyi">Çok iyi</option>
+          <option value="iyi">İyi</option>
+          <option value="orta">Orta</option>
+          <option value="zayif">Zayıf</option>
+        </select>
+      </div>
+
+      <div class="question-block">
+        <label for="yemek">Yiyecek ve içecek kalitesinden memnun kaldınız mı?</label>
+        <select id="yemek" name="yemek" required>
+          <option value="" disabled selected>Seçiniz</option>
+          <option value="evet">Evet</option>
+          <option value="kismen">Kısmen</option>
+          <option value="hayir">Hayır</option>
+        </select>
+      </div>
+
+      <div class="question-block">
+        <label for="fiyat">Fiyat-performans oranını nasıl buluyorsunuz?</label>
+        <select id="fiyat" name="fiyat" required>
+          <option value="" disabled selected>Seçiniz</option>
+          <option value="uygun">Uygun</option>
+          <option value="ortalama">Ortalama</option>
+          <option value="pahali">Pahalı</option>
+        </select>
+      </div>
+
+      <div class="question-block">
+        <label for="yeniden">Aynı otelde tekrar kalmayı düşünür müsünüz?</label>
+        <select id="yeniden" name="yeniden" required>
+          <option value="" disabled selected>Seçiniz</option>
+          <option value="evet">Evet</option>
+          <option value="belki">Belki</option>
+          <option value="hayir">Hayır</option>
+        </select>
+      </div>
+
+      <div class="question-block">
+        <label for="oneriler">Eklemek istediğiniz yorum veya öneriler:</label>
+        <textarea id="oneriler" name="oneriler" rows="4"></textarea>
+      </div>
+
+      <button type="submit">Gönder</button>
+      <button type="button" onclick="indirmeYap()">Anketi JSON olarak indir</button>
+      <button type="button" onclick="linkOlustur()">Paylaşılabilir link oluştur</button>
+      <input type="text" id="shareLink" readonly placeholder="Oluşturulan link burada görünecek..." />
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('anketForm');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert("Teşekkürler! Geri bildiriminiz alınmıştır.");
+    });
+
+    function getFormData() {
+      const data = {};
+      Array.from(form.elements).forEach(el => {
+        if (el.id && el.type !== 'submit' && el.type !== 'button') {
+          data[el.id] = el.value;
+        }
+      });
+      return data;
+    }
+
+    function indirmeYap() {
+      const data = getFormData();
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'misafir_memnuniyet_anketi.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function linkOlustur() {
+      const data = getFormData();
+      const encoded = encodeURIComponent(JSON.stringify(data));
+      const baseUrl = window.location.origin + window.location.pathname;
+      const fullUrl = `${baseUrl}?anket=${encoded}`;
+      const input = document.getElementById("shareLink");
+      input.value = fullUrl;
+      input.select();
+      document.execCommand("copy");
+      alert("Link panoya kopyalandı!");
+    }
+  </script>
+
+</body>
+</html>

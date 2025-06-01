@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+     <link rel="icon" href="sharfi.jpg" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hasta Memnuniyeti Anketi</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fdfaf9;
+      color: #36150f;
+      margin: 0;
+      padding: 0;
+    }
+    #formContainer {
+      max-width: 600px;
+      margin: 40px auto;
+      background-color: #fff;
+      padding: 30px 40px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(97, 39, 28, 0.15);
+    }
+    h1 {
+      text-align: center;
+      color: #61271c;
+      margin-bottom: 30px;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 8px;
+    }
+    select, textarea, input[type="text"], input[type="number"], input[type="email"], input[type="date"] {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+    }
+    select:focus, textarea:focus, input[type="text"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="date"]:focus {
+      border-color: #61271c;
+      box-shadow: 0 0 0 2px rgba(97, 39, 28, 0.2);
+      outline: none;
+    }
+    button {
+      padding: 14px 24px;
+      background-color: #61271c;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-right: 10px;
+      transition: background-color 0.2s ease;
+    }
+    button:hover {
+      background-color: #43180a;
+    }
+    #shareLink {
+      margin-top: 12px;
+      padding: 10px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+      background-color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div id="formContainer">
+    <h1>🏥 Hasta Memnuniyeti Anketi</h1>
+    <form id="hastaAnketForm">
+      <label for="isim">Adınız Soyadınız:</label>
+      <input type="text" id="isim" name="isim" required />
+
+      <label for="dogum_tarihi">Doğum Tarihiniz:</label>
+      <input type="date" id="dogum_tarihi" name="dogum_tarihi" required />
+
+      <label for="hastane_bilgisi">Hastane/Klinik Adı:</label>
+      <input type="text" id="hastane_bilgisi" name="hastane_bilgisi" required />
+
+      <label for="doktor_memnuniyeti">Doktorunuzdan memnun musunuz?</label>
+      <select id="doktor_memnuniyeti" name="doktor_memnuniyeti" required>
+        <option value="" disabled selected>Seçiniz</option>
+        <option value="cok_memnun">Çok memnunum</option>
+        <option value="memnun">Memnunum</option>
+        <option value="kararsiz">Kararsızım</option>
+        <option value="memnun_degil">Memnun değilim</option>
+      </select>
+
+      <label for="personel_davranisi">Hastane personelinin davranışı nasıldı?</label>
+      <select id="personel_davranisi" name="personel_davranisi" required>
+        <option value="" disabled selected>Seçiniz</option>
+        <option value="cok_iyi">Çok iyi</option>
+        <option value="iyi">İyi</option>
+        <option value="orta">Orta</option>
+        <option value="kotu">Kötü</option>
+      </select>
+
+      <label for="temizlik">Hastane temizliği ve hijyen durumu:</label>
+      <select id="temizlik" name="temizlik" required>
+        <option value="" disabled selected>Seçiniz</option>
+        <option value="mukemmel">Mükemmel</option>
+        <option value="iyi">İyi</option>
+        <option value="orta">Orta</option>
+        <option value="kotu">Kötü</option>
+      </select>
+
+      <label for="bekleme_suresi">Bekleme süresi beklentinizi karşıladı mı?</label>
+      <select id="bekleme_suresi" name="bekleme_suresi" required>
+        <option value="" disabled selected>Seçiniz</option>
+        <option value="evet">Evet</option>
+        <option value="kismen">Kısmen</option>
+        <option value="hayir">Hayır</option>
+      </select>
+
+      <label for="genel_memnuniyet">Genel memnuniyetinizi nasıl değerlendirirsiniz?</label>
+      <select id="genel_memnuniyet" name="genel_memnuniyet" required>
+        <option value="" disabled selected>Seçiniz</option>
+        <option value="cok_memnun">Çok memnun</option>
+        <option value="memnun">Memnun</option>
+        <option value="kararsiz">Kararsız</option>
+        <option value="memnun_degil">Memnun değil</option>
+      </select>
+
+      <label for="oneriler">Öneri veya yorumlarınız:</label>
+      <textarea id="oneriler" name="oneriler" rows="4" placeholder="Lütfen öneri veya yorumlarınızı yazınız..."></textarea>
+
+      <button type="submit">Gönder</button>
+      <button type="button" onclick="indirmeYap()">Formu JSON Olarak İndir</button>
+      <button type="button" onclick="linkOlustur()">Paylaşılabilir Link Oluştur</button>
+      <input type="text" id="shareLink" readonly placeholder="Oluşturulan link burada görünecek..." />
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('hastaAnketForm');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert("Anketiniz için teşekkür ederiz!");
+    });
+
+    function getFormData() {
+      const data = {};
+      Array.from(form.elements).forEach(el => {
+        if (el.id && el.type !== 'submit' && el.type !== 'button') {
+          data[el.id] = el.value;
+        }
+      });
+      return data;
+    }
+
+    function indirmeYap() {
+      const data = getFormData();
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'hasta_memnuniyeti_anketi.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function linkOlustur() {
+      const data = getFormData();
+      const encoded = encodeURIComponent(JSON.stringify(data));
+      const baseUrl = window.location.origin + window.location.pathname;
+      const fullUrl = `${baseUrl}?anket=${encoded}`;
+      const input = document.getElementById('shareLink');
+      input.value = fullUrl;
+      input.select();
+      document.execCommand('copy');
+      alert('Paylaşılabilir link panoya kopyalandı!');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anket Türleri</title>
+  <link rel="stylesheet" href="birinci.css" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+  <link rel="icon" href="sharfi.jpg" type="image/x-icon">
+</head>
+
+<body>
+  
+  <header class="navbar">
+    <div class="logo">Star Anket Platformu</div>
+    <ul class="nav-links">
+      <li><a href="#anasayfa">Ana Sayfa</a></li>
+      <li><a href="#nasıloluşturulur?">Anket Nasıl Oluşturulur?</a></li>
+     <li><a href="#neden">Neden Star Anket Platformu?</a></li>
+      <li><a href="#anketler">Anketler</a></li>
+      
+       <li><a href="#sss">SSS</a></li>
+    </ul>
+    
+    <div class="auth-buttons">
+      <span id="welcomeMessage" style="display: none; color: white; margin-right: 15px;">Hoşgeldiniz, <span id="userName"></span></span>
+      <a href="auth.html?mode=login" class="login-btn" id="loginBtn">Giriş Yap</a>
+      <a href="auth.html?mode=signup" class="signup-btn" id="signupBtn">Üye Ol</a>
+      <a href="#" class="logout-btn" id="logoutBtn" style="display: none;">Çıkış Yap</a>
+    </div>
+
+  
+
+  </header>
+
+  <section id="anasayfa" class="hero">
+    <div class="hero-content">
+      <h2>Kendi Anketini Oluştur!</h2>
+      <p>
+        Markanızı büyütmek, topluluğunuzu daha iyi anlamak ya da araştırmalarınızı derinleştirmek mi istiyorsunuz?
+        Star Anket Platformu ile kullanıcı dostu arayüzümüz ve tamamen özelleştirilebilir şablonlarımız sayesinde dakikalar içinde
+        anketinizi hazırlayın. Hedef kitlenizden içgörü dolu geri bildirimler toplayın, stratejilerinizi veriye dayalı
+        adımlarla şekillendirin. Doğru sorularla, doğru sonuçlara ulaşın.
+      </p>
+      <a href="#anketler" class="btn">Anket Türlerine Göz At</a>
+    </div>
+    <div class="hero-image">
+      <img src="kadın.jpg.jpg" alt="Anket Görseli" />
+    </div>
+  </section>
+
+  <section id="nasıloluşturulur?" class="how-to-create">
+  <div class="container">
+    <h2 class="section-title">3 Adımda Anket Nasıl Oluşturulur?</h2>
+    <p class="section-subtitle">
+      Anket hazırlamak hiç bu kadar kolay olmamıştı! Aşağıdaki üç adımı takip ederek kendi anketinizi dakikalar içinde oluşturabilirsiniz.
+    </p>
+
+    <div class="steps-grid">
+      <div class="step-box">
+        <h3>1. Adım: Şablon Seç</h3>
+        <p>Kategorilere göre sunulan hazır şablonlardan birini seçerek işe başla ya da sıfırdan kendi sorularını oluştur.</p>
+      </div>
+
+      <div class="step-box">
+        <h3>2. Adım: Soruları Düzenle</h3>
+        <p>İstediğin soru türlerini ekle, seçenekleri özelleştir, anketine marka ve görseller ekle.</p>
+      </div>
+
+      <div class="step-box">
+        <h3>3. Adım: Yayınla ve Paylaş</h3>
+        <p>Anketini e-posta, sosyal medya veya web sitesinde paylaş. Sonuçları anlık olarak takip et.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section id="neden" class="why-choose">
+    <div class="container">
+      <h2 class="section-title">Neden Star Anket Platformunu Seçmelisiniz?</h2>
+      <p class="section-subtitle">
+        Akademik araştırma yapıyor, paydaş geri bildirimi topluyor veya yeni spor ekipmanları hakkında geri bildirim
+        istiyor olun, ihtiyaçlarınıza uygun şekilde kolayca özelleştirebileceğiniz çok sayıda anket şablonuna erişin.
+      </p>
+
+      <div class="features-grid">
+        <!-- Özellik kutuları -->
+        <div class="feature-box">
+          <h3>Kolay Anket Oluşturma</h3>
+          <ul>
+            <li>Hızlı ve basit anket oluşturucu</li>
+            <li>100+ anket şablonu</li>
+            <li>28+ farklı soru türü</li>
+          </ul>
+        </div>
+
+        <div class="feature-box">
+          <h3>Gelişmiş Özellikler</h3>
+          <ul>
+            <li>Ücretsiz anket araçları</li>
+            <li>Sınırsız anketler ve sorular</li>
+            <li>Gelişmiş mantık seçenekleri</li>
+          </ul>
+        </div>
+
+        <div class="feature-box">
+          <h3>Çeviri Yetenekleri</h3>
+          <ul>
+            <li>40'tan fazla dilde çeviri</li>
+            <li>Anketlerin kolay çevirisi</li>
+          </ul>
+        </div>
+
+        <div class="feature-box">
+          <h3>Güvenlik ve Gizlilik</h3>
+          <ul>
+            <li>GDPR uyumlu</li>
+            <li>Özel sunucu seçenekleri</li>
+            <li>2048-bit SSL şifreleme</li>
+          </ul>
+        </div>
+
+        <div class="feature-box">
+          <h3>Müşteri Hizmetleri</h3>
+          <ul>
+            <li>Profesyonel destek ekibi</li>
+            <li>Aktif topluluk</li>
+            <li>Canlı yardım seçeneği</li>
+          </ul>
+        </div>
+
+        <div class="feature-box">
+          <h3>Marka Uyumu ve Kişiselleştirme</h3>
+          <ul>
+            <li>Özel alan adı ve logolar</li>
+            <li>Anket markasını kaldırma seçeneği</li>
+            <li>Uyarlanabilir eklentiler</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cta-button">
+    <a href="#anketler" class="btn scroll-btn">Şimdi Ücretsiz Bir Anket Oluşturun</a>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="templates-section" id="anketler">
+    <div class="templates-heading">
+      <h2>Çeşitli hazır anket şablonları arasından seçim yapın</h2>
+      <p>Tüm şablonlar tamamen özelleştirilebilir</p>
+    </div>
+
+    <div class="container">
+      <div class="template-card">
+        <h3>Müşteri Deneyimi Yönetimi</h3>
+        <p>Müşteri geri bildirimine yönelik paylaşılabilir anketler</p>
+        <br>
+        <ul>
+          <li><a href="beklenti.html" target="_blank">Müşteri Memnuniyeti Anketleri</a></li>
+          <li><a href="iyilestirme.html" target="_blank">İyileştirme Önerisi Anketi</a></li>
+          
+        </ul>
+      </div>
+
+      <div class="template-card">
+        <h3>Pazar Araştırması</h3>
+        <p>Hedef kitleyi daha yakından tanımaya yönelik pazarlama araştırması anketleri</p>
+        <br>
+        <ul>
+          <li><a href="musteri-persona.html" target="_blank">Tüketici Persona Anketleri</li>
+       <li><a href="tuketici-davranisi.html" target="_blank">Tüketici Davranışı Anketleri</a></li>
+        </ul>
+      </div>
+
+      <div class="template-card">
+        <h3>Çalışan Deneyimi Yönetimi</h3>
+        <p>Çalışanların işe alımdan itibaren yaşadıkları tüm deneyimlere dair içgörü elde etmek amacıyla hazırlanan anketler</p>
+        <ul>
+        <br>
+        <li><a href="mulakat-sonrasi.html" target="_blank">Mülakat Sonrası Anketler</a></li>
+        <li><a href="is-memnuniyeti.html" target="_blank">İş Memnuniyeti Anketleri</a></li>
+        </ul>
+      </div>
+
+      <div class="template-card">
+        <h3>Turizm ve Oteller</h3>
+        <p>Konaklama deneyiminizi daha iyi anlamak ve hizmet kalitemizi sürekli geliştirmek amacıyla hazırlanan anketler</p>
+        <br>
+        <ul>
+          <li><a href="misafir-memnuniyet.html" target="_blank">Misafir Memnuniyeti Anketleri</a></li>
+          <li><a href="oda-rezervasyon.html">Oda Rezervasyon Formları</a></li>
+        </ul>
+      </div>
+
+      <div class="template-card">
+        <h3>Sağlık ve Hastaneler</h3>
+        <p>Hastaların memnuniyetini ölçmek ve tedavi süreçlerini etkin şekilde takip etmek amacıyla oluşturulan anketler</p>
+        <br>
+        <ul>
+          <li><a href="hasta-memnuniyeti.html">Hasta Memnuniyeti Anketleri</a></li>
+          <li><a href="hasta-takip.html">Hasta Takip Formları</a></li>
+        </ul>
+      </div>
+
+      <div class="template-card">
+        <h3>Genel Formlar</h3>
+         <p>Kullanıcıların manuel olarak kendi formlarını oluşturabileceği genel form</p>
+        <ul>
+          <br>
+          <li><a href="kendim.html" target="_blank">Kendi Formunu Oluştur</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+
+  <section id="sss" class="faq-section">
+  <div class="container">
+    <h2 class="section-title">Anketler için SSS</h2>
+
+    <div class="accordion">
+      <div class="accordion-item">
+        <button class="accordion-header">Anket nedir?</button>
+        <div class="accordion-body">
+          <p>
+            Anket, belirli bir konu hakkında insanların düşüncelerini, ihtiyaçlarını veya deneyimlerini toplamak amacıyla hazırlanan soru formlarıdır.
+            Kurumlar, bireyler veya araştırmacılar tarafından bilgi toplamak, analiz yapmak ve karar süreçlerini desteklemek için kullanılır.
+          </p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-header">Anket oluşturucu nedir?</button>
+        <div class="accordion-body">
+          <p>
+            Anket oluşturucu; kullanıcıların teknik bilgiye ihtiyaç duymadan, çevrim içi ortamda hızlı ve kolay şekilde anket hazırlamasını sağlayan dijital araçtır.
+            Soru ekleme, tasarım özelleştirme ve veri toplama gibi işlemleri tek bir platformda yapma imkanı sunar.
+          </p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-header">Anket oluşturucu ne için kullanılır?</button>
+        <div class="accordion-body">
+          <p>
+            Anket oluşturucular; müşteri memnuniyetini ölçmek, pazar araştırması yapmak, çalışan geri bildirimi toplamak, etkinlik sonrası değerlendirme yapmak
+            ve akademik çalışmalar yürütmek gibi çok çeşitli amaçlarla kullanılır. Hızlı veri toplamak ve analiz etmek isteyen herkes için ideal bir çözümdür.
+          </p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-header">Kimler anket oluşturucu kullanabilir?</button>
+        <div class="accordion-body">
+          <p>
+            Öğrenciler, öğretmenler, işletme sahipleri, pazarlama uzmanları, insan kaynakları profesyonelleri, STK'lar ve kamu kurumları gibi çok çeşitli kullanıcılar
+            anket oluşturucudan faydalanabilir. Kısacası, hedef kitlesinden bilgi almak isteyen herkes bu aracı rahatlıkla kullanabilir.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- JS KODU AÇ KAPA -->
+<script>
+  const headers = document.querySelectorAll(".accordion-header");
+  headers.forEach(header => {
+    header.addEventListener("click", () => {
+      // Diğer aktif olanı kapat
+      headers.forEach(h => {
+        if (h !== header) {
+          h.classList.remove("active");
+          h.nextElementSibling.style.display = "none";
+        }
+      });
+
+      // Mevcut olanı aç/kapat
+      header.classList.toggle("active");
+      const body = header.nextElementSibling;
+      body.style.display = header.classList.contains("active") ? "block" : "none";
+    });
+  });
+</script>
+
+<!-- Yorumlar -->
+  <section class="feedback-section">
+    <h2 class="feedback-title">Gerçek Kullanıcılardan Gelen Geri Bildirimler</h2>
+    <div class="feedback-list" id="testimonialList">
+      <div class="feedback-card">
+        <img src="https://i.pravatar.cc/80?img=47" alt="Kullanıcı" class="user-photo" />
+        <div class="feedback-content">
+          <p class="feedback-text">"Platform sayesinde anket sonuçlarını analiz etmek çok kolay oldu."</p>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p class="user-name">Melin Ç.</p>
+        </div>
+      </div>
+
+      <div class="feedback-card">
+        <img src="https://i.pravatar.cc/80?img=56" alt="Kullanıcı" class="user-photo" />
+        <div class="feedback-content">
+          <p class="feedback-text">"Dost canlısı destek ekibi sorunlarımı hemen çözdü, teşekkürler."</p>
+          <div class="stars">⭐⭐⭐⭐</div>
+          <p class="user-name">Burak Y.</p>
+        </div>
+      </div>
+
+      <div class="feedback-card">
+        <img src="https://i.pravatar.cc/80?img=68" alt="Kullanıcı" class="user-photo" />
+        <div class="feedback-content">
+          <p class="feedback-text">"Mobil uyumluluğu çok başarılı, her yerden rahatça anket yapabiliyorum."</p>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p class="user-name">Emir G.</p>
+        </div>
+      </div>
+
+      <div class="feedback-card">
+        <img src="https://i.pravatar.cc/80?img=52" alt="Kullanıcı" class="user-photo" />
+        <div class="feedback-content">
+          <p class="feedback-text">"Soru çeşitliliği ve tasarımı beklentilerimi karşıladı."</p>
+          <div class="stars">⭐⭐⭐⭐</div>
+          <p class="user-name">Can A.</p>
+        </div>
+      </div>
+
+      <div class="feedback-card">
+        <img src="https://i.pravatar.cc/80?img=45" alt="Kullanıcı" class="user-photo" />
+        <div class="feedback-content">
+          <p class="feedback-text">"Raporlama araçları sayesinde kampanyalarımız çok daha verimli hale geldi."</p>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p class="user-name">İclal T.</p>
+        </div>
+      </div>
+
+      <div class="feedback-card">
+        <img src="https://i.pravatar.cc/80?img=53" alt="Kullanıcı" class="user-photo" />
+        <div class="feedback-content">
+          <p class="feedback-text">"Kullanıcı arayüzü çok sade ve anlaşılır, işimi kolaylaştırdı."</p>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p class="user-name">Murat S.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<form id="feedbackForm" action="https://formspree.io/f/mvgrpklp" method="POST">
+  <label>
+    E-posta:
+    <input type="email" name="email" required>
+  </label>
+
+  <label>
+    Yorumunuz:
+    <textarea name="message" required></textarea>
+  </label>
+
+  <label>
+    Puan:
+    <select id="ratingInput" name="rating" required>
+      <option value="5">⭐⭐⭐⭐⭐ (5)</option>
+      <option value="4">⭐⭐⭐⭐ (4)</option>
+      <option value="3">⭐⭐⭐ (3)</option>
+      <option value="2">⭐⭐ (2)</option>
+      <option value="1">⭐ (1)</option>
+    </select>
+  </label>
+
+  <button type="submit">Gönder</button>
+</form>
+
+<div id="resultMessage" style="margin-top:1em; font-weight:bold;"></div>
+
+<script>
+  const form = document.getElementById("feedbackForm");
+  const resultMessage = document.getElementById("resultMessage");
+  const ratingSelect = document.getElementById("ratingInput");
+
+  function ratingText(rating) {
+    switch(rating) {
+      case "5": return "Mükemmel";
+      case "4": return "Çok İyi";
+      case "3": return "İyi";
+      case "2": return "Orta";
+      case "1": return "Kötü";
+      default: return "";
+    }
+  }
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const email = formData.get("email");
+    const message = formData.get("message");
+    const rating = formData.get("rating");
+
+    fetch(form.action, {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: email,
+        message: message + "\n\nPuan: " + rating + " (" + ratingText(rating) + ")"
+      })
+    }).then(response => {
+      if (response.ok) {
+        resultMessage.textContent = `Yorumunuz başarıyla gönderildi! Puanınız: ${rating} (${ratingText(rating)})`;
+        form.reset();
+      } else {
+        resultMessage.textContent = "Gönderim başarısız oldu, lütfen tekrar deneyin.";
+      }
+    }).catch(() => {
+      resultMessage.textContent = "Bir hata oluştu, lütfen tekrar deneyin.";
+    });
+  });
+</script>
+
+
+ 
+
+  <!-- Destek açma/kapama butonu -->
+  <button class="support-toggle" aria-label="Destek bölümünü aç/kapat">💬</button>
+
+  <!-- Destek kutucuğu -->
+  <div class="support-box" role="region" aria-live="polite" aria-hidden="true">
+    <h1>Destek Bölümü</h1>
+    <p class="info-text">Sorularınız veya önerileriniz için aşağıdaki formu doldurabilirsiniz. Size en kısa sürede dönüş yapacağız.</p>
+    <form action="https://formspree.io/f/xrbkzpdb" method="POST">
+      <label>
+        E-posta adresiniz:
+        <input type="email" name="email" required placeholder="ornek@mail.com" />
+      </label>
+      <label>
+        Mesajınız:
+        <textarea name="message" required placeholder="Sorunuzu ya da mesajınızı buraya yazın..."></textarea>
+      </label>
+      <button type="submit">Gönder</button>
+    </form>
+  </div>
+
+  <script>
+    const toggleBtn = document.querySelector('.support-toggle');
+    const supportBox = document.querySelector('.support-box');
+
+    toggleBtn.addEventListener('click', () => {
+      const isVisible = supportBox.style.display === 'block';
+      if (isVisible) {
+        supportBox.style.display = 'none';
+        supportBox.setAttribute('aria-hidden', 'true');
+      } else {
+        supportBox.style.display = 'block';
+        supportBox.setAttribute('aria-hidden', 'false');
+      }
+    });
+  </script>
+
+<script>
+  // Kullanıcı giriş durumunu kontrol et
+  function checkLoginStatus() {
+    try {
+      const currentUser = localStorage.getItem('currentUser') || sessionStorage.getItem('currentUser');
+      const loginBtn = document.getElementById('loginBtn');
+      const signupBtn = document.getElementById('signupBtn');
+      const logoutBtn = document.getElementById('logoutBtn');
+      const welcomeMessage = document.getElementById('welcomeMessage');
+      const userName = document.getElementById('userName');
+
+      if (currentUser) {
+        // Kullanıcı giriş yapmışsa
+        const user = JSON.parse(currentUser);
+        loginBtn.style.display = 'none';
+        signupBtn.style.display = 'none';
+        logoutBtn.style.display = 'inline-block';
+        welcomeMessage.style.display = 'inline-block';
+        userName.textContent = user.name;
+      } else {
+        // Kullanıcı giriş yapmamışsa
+        loginBtn.style.display = 'inline-block';
+        signupBtn.style.display = 'inline-block';
+        logoutBtn.style.display = 'none';
+        welcomeMessage.style.display = 'none';
+      }
+    } catch (error) {
+      console.error('Giriş durumu kontrolü sırasında hata:', error);
+      // Hata durumunda varsayılan olarak giriş yapmamış durumu göster
+      document.getElementById('loginBtn').style.display = 'inline-block';
+      document.getElementById('signupBtn').style.display = 'inline-block';
+      document.getElementById('logoutBtn').style.display = 'none';
+      document.getElementById('welcomeMessage').style.display = 'none';
+    }
+  }
+
+  // Çıkış yapma fonksiyonu
+  document.getElementById('logoutBtn').addEventListener('click', function(e) {
+    e.preventDefault();
+    try {
+      localStorage.removeItem('currentUser');
+      sessionStorage.removeItem('currentUser');
+      checkLoginStatus();
+      window.location.reload();
+    } catch (error) {
+      console.error('Çıkış işlemi sırasında hata:', error);
+      alert('Çıkış işlemi sırasında bir hata oluştu. Lütfen sayfayı yenileyip tekrar deneyin.');
+    }
+  });
+
+  // Sayfa yüklendiğinde giriş durumunu kontrol et
+  document.addEventListener('DOMContentLoaded', checkLoginStatus);
+</script>
+
+
+ 
+
+</body>
+</html>
+
+
+
