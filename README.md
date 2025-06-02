@@ -5,9 +5,7 @@
 
 **StarAnketPlatformu**, bireylerin ve kurumların farklı ihtiyaçlarına yönelik anketleri dijital ortamda sunmak amacıyla geliştirilmiş çok sayfalı, statik bir web uygulamasıdır. Proje, özellikle kullanıcı deneyimini ön planda tutarak farklı sektörlerden kullanıcıların kolaylıkla erişebileceği bir anket platformu sağlamayı hedefler.
 
-Bu platform; sağlık hizmetleri, müşteri memnuniyeti, personel değerlendirme, mülakat geri bildirimi ve benzeri pek çok alanda veri toplanmasına olanak tanır. HTML, CSS ve JavaScript teknolojileri kullanılarak oluşturulmuş olan proje, tasarımı ve dosya yapısıyla temel bir front-end projesi olarak değerlendirilebilir.
-
-Uygulama, eğitim veya bireysel portföy amaçlı geliştirilmeye uygundur ve ihtiyaç duyulursa veritabanı entegrasyonu ve kullanıcı oturum yönetimi gibi ileri düzey özelliklerle desteklenebilir.
+Bu platform; sağlık hizmetleri, müşteri memnuniyeti, personel değerlendirme, mülakat geri bildirimi ve benzeri pek çok alanda veri toplanmasına olanak tanır. HTML, CSS ve JavaScript teknolojileri kullanılarak oluşturulmuş olan proje, tasarımı ve dosya yapısıyla temel bir front-end projesidir.
 
 ---
 
