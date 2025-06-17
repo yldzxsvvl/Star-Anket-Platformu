@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <link rel="icon" href="sharfi.jpg" type="image/x-icon">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin Girişi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .auth-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .auth-container h2 {
+            margin-bottom: 20px;
+            color: #61271c;
+            text-align: center;
+        }
+
+        .auth-container label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #000000;
+        }
+
+        .auth-container input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        .auth-container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #61271c;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            margin-top: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .auth-container button:hover {
+            background-color: #450f0a;
+        }
+
+        .back-link {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .back-link a {
+            color: #61271c;
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <form id="adminLoginForm">
+            <h2>Admin Girişi</h2>
+            <label for="adminUsername">Kullanıcı Adı</label>
+            <input type="text" id="adminUsername" placeholder="Kullanıcı adınızı girin" required />
+
+            <label for="adminPassword">Şifre</label>
+            <input type="password" id="adminPassword" placeholder="Şifrenizi girin" required />
+
+            <button type="submit">Giriş Yap</button>
+
+            <p class="back-link">
+                <a href="index.html">Ana Sayfaya Dön</a>
+            </p>
+        </form>
+    </div>
+
+    <script>
+        const adminLoginForm = document.getElementById('adminLoginForm');
+
+        // Admin girişi için sabit kullanıcı adı ve şifre
+        const ADMIN_USERNAME = 'admin';
+        const ADMIN_PASSWORD = 'admin123';
+
+        adminLoginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('adminUsername').value.trim();
+            const password = document.getElementById('adminPassword').value;
+
+            if (!username || !password) {
+                alert('Lütfen kullanıcı adı ve şifreyi girin.');
+                return;
+            }
+
+            if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+                // Admin girişi başarılı
+                const adminUser = {
+                    username: username,
+                    loginTime: new Date().toISOString(),
+                    isAdmin: true
+                };
+                
+                localStorage.setItem('currentUser', JSON.stringify(adminUser));
+                sessionStorage.setItem('currentUser', JSON.stringify(adminUser));
+
+                alert('Hoş Geldin Admin!');
+                adminLoginForm.reset();
+                
+                window.location.href = 'index.html';
+            } else {
+                alert('Kullanıcı adı veya şifre hatalı!');
+            }
+        });
+    </script>
+</body>
+</html> 

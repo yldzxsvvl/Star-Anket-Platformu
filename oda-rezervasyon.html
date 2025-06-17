@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+     <link rel="icon" href="sharfi.jpg" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Oda Rezervasyon Formu</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fdfaf9;
+      color: #36150f;
+      margin: 0;
+      padding: 0;
+    }
+    #formWrapper {
+      max-width: 600px;
+      margin: 40px auto;
+      background-color: #fff;
+      padding: 30px 40px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(97, 39, 28, 0.15);
+    }
+    h1 {
+      text-align: center;
+      color: #61271c;
+      margin-bottom: 30px;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 8px;
+    }
+    input, select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+    }
+    input:focus, select:focus {
+      border-color: #61271c;
+      box-shadow: 0 0 0 2px rgba(97, 39, 28, 0.2);
+      outline: none;
+    }
+    button {
+      padding: 14px 24px;
+      background-color: #61271c;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-right: 10px;
+      transition: background-color 0.2s ease;
+    }
+    button:hover {
+      background-color: #43180a;
+    }
+    #shareLink {
+      margin-top: 12px;
+      padding: 10px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+      background-color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div id="formWrapper">
+    <h1>🛏️ Oda Rezervasyon Formu</h1>
+    <form id="rezervasyonForm">
+      <label for="isim">Adınız Soyadınız:</label>
+      <input type="text" id="isim" name="isim" required />
+
+      <label for="email">E-posta Adresiniz:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="telefon">Telefon Numaranız:</label>
+      <input type="tel" id="telefon" name="telefon" required pattern="[0-9\s\-+()]{7,}" placeholder="Örnek: +90 555 123 45 67" />
+
+      <label for="checkin">Giriş Tarihi:</label>
+      <input type="date" id="checkin" name="checkin" required />
+
+      <label for="checkout">Çıkış Tarihi:</label>
+      <input type="date" id="checkout" name="checkout" required />
+
+      <label for="oda_tipi">Oda Tipi:</label>
+      <select id="oda_tipi" name="oda_tipi" required>
+        <option value="" disabled selected>Seçiniz</option>
+        <option value="tek_kisilik">Tek Kişilik</option>
+        <option value="cift_kisilik">Çift Kişilik</option>
+        <option value="suit">Suit</option>
+        <option value="aile_odasi">Aile Odası</option>
+      </select>
+
+      <label for="misafir_sayisi">Misafir Sayısı:</label>
+      <input type="number" id="misafir_sayisi" name="misafir_sayisi" min="1" max="10" required />
+
+      <label for="notlar">Ekstra Notlar / Talepler (isteğe bağlı):</label>
+      <textarea id="notlar" name="notlar" rows="4" placeholder="Özel isteklerinizi yazabilirsiniz..."></textarea>
+
+      <button type="submit">Rezervasyon Yap</button>
+      <button type="button" onclick="indirmeYap()">Formu JSON Olarak İndir</button>
+      <button type="button" onclick="linkOlustur()">Paylaşılabilir Link Oluştur</button>
+      <input type="text" id="shareLink" readonly placeholder="Oluşturulan link burada görünecek..." />
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('rezervasyonForm');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert("Rezervasyon talebiniz alındı. Teşekkürler!");
+    });
+
+    function getFormData() {
+      const data = {};
+      Array.from(form.elements).forEach(el => {
+        if (el.id && el.type !== 'submit' && el.type !== 'button') {
+          data[el.id] = el.value;
+        }
+      });
+      return data;
+    }
+
+    function indirmeYap() {
+      const data = getFormData();
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'oda_rezervasyon_formu.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function linkOlustur() {
+      const data = getFormData();
+      const encoded = encodeURIComponent(JSON.stringify(data));
+      const baseUrl = window.location.origin + window.location.pathname;
+      const fullUrl = `${baseUrl}?rezervasyon=${encoded}`;
+      const input = document.getElementById('shareLink');
+      input.value = fullUrl;
+      input.select();
+      document.execCommand('copy');
+      alert('Paylaşılabilir link panoya kopyalandı!');
+    }
+  </script>
+</body>
+</html>

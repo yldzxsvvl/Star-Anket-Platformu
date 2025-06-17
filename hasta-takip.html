@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+     <link rel="icon" href="sharfi.jpg" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hasta Takip Formu</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fdfaf9;
+      color: #36150f;
+      margin: 0;
+      padding: 0;
+    }
+    #formContainer {
+      max-width: 600px;
+      margin: 40px auto;
+      background-color: #fff;
+      padding: 30px 40px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(97, 39, 28, 0.15);
+    }
+    h1 {
+      text-align: center;
+      color: #61271c;
+      margin-bottom: 30px;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 8px;
+    }
+    select, textarea, input[type="text"], input[type="number"], input[type="email"], input[type="date"], input[type="time"] {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+    }
+    select:focus, textarea:focus, input[type="text"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="date"]:focus, input[type="time"]:focus {
+      border-color: #61271c;
+      box-shadow: 0 0 0 2px rgba(97, 39, 28, 0.2);
+      outline: none;
+    }
+    button {
+      padding: 14px 24px;
+      background-color: #61271c;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-right: 10px;
+      transition: background-color 0.2s ease;
+    }
+    button:hover {
+      background-color: #43180a;
+    }
+    #shareLink {
+      margin-top: 12px;
+      padding: 10px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+      background-color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div id="formContainer">
+    <h1>🩺 Hasta Takip Formu</h1>
+    <form id="hastaTakipForm">
+      <label for="hasta_adi">Hasta Adı Soyadı:</label>
+      <input type="text" id="hasta_adi" name="hasta_adi" required />
+
+      <label for="dogum_tarihi">Doğum Tarihi:</label>
+      <input type="date" id="dogum_tarihi" name="dogum_tarihi" required />
+
+      <label for="telefon">Telefon Numarası:</label>
+      <input type="text" id="telefon" name="telefon" placeholder="(5xx) xxx xx xx" required />
+
+      <label for="takip_tarihi">Takip Tarihi:</label>
+      <input type="date" id="takip_tarihi" name="takip_tarihi" required />
+
+      <label for="takip_saati">Takip Saati:</label>
+      <input type="time" id="takip_saati" name="takip_saati" required />
+
+      <label for="tansiyon">Tansiyon (mmHg):</label>
+      <input type="text" id="tansiyon" name="tansiyon" placeholder="Örnek: 120/80" />
+
+      <label for="nabiz">Nabız (bpm):</label>
+      <input type="number" id="nabiz" name="nabiz" min="0" max="200" />
+
+      <label for="ates">Ateş (°C):</label>
+      <input type="number" id="ates" name="ates" min="30" max="45" step="0.1" />
+
+      <label for="solunum">Solunum Sayısı (dakikada):</label>
+      <input type="number" id="solunum" name="solunum" min="0" max="60" />
+
+      <label for="durum">Genel Durum:</label>
+      <select id="durum" name="durum" required>
+        <option value="" disabled selected>Seçiniz</option>
+        <option value="iyi">İyi</option>
+        <option value="orta">Orta</option>
+        <option value="kotu">Kötü</option>
+        <option value="kritik">Kritik</option>
+      </select>
+
+      <label for="notlar">Doktor Notları / Ek Bilgiler:</label>
+      <textarea id="notlar" name="notlar" rows="4" placeholder="Notlarınızı buraya yazınız..."></textarea>
+
+      <button type="submit">Kaydet</button>
+      <button type="button" onclick="indirmeYap()">Formu JSON Olarak İndir</button>
+      <button type="button" onclick="linkOlustur()">Paylaşılabilir Link Oluştur</button>
+      <input type="text" id="shareLink" readonly placeholder="Oluşturulan link burada görünecek..." />
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('hastaTakipForm');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert("Hasta takip formu kaydedildi!");
+    });
+
+    function getFormData() {
+      const data = {};
+      Array.from(form.elements).forEach(el => {
+        if (el.id && el.type !== 'submit' && el.type !== 'button') {
+          data[el.id] = el.value;
+        }
+      });
+      return data;
+    }
+
+    function indirmeYap() {
+      const data = getFormData();
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'hasta_takip_formu.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function linkOlustur() {
+      const data = getFormData();
+      const encoded = encodeURIComponent(JSON.stringify(data));
+      const baseUrl = window.location.origin + window.location.pathname;
+      const fullUrl = `${baseUrl}?form=${encoded}`;
+      const input = document.getElementById('shareLink');
+      input.value = fullUrl;
+      input.select();
+      document.execCommand('copy');
+      alert('Paylaşılabilir link panoya kopyalandı!');
+    }
+  </script>
+</body>
+</html>

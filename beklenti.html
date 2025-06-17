@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+     <link rel="icon" href="sharfi.jpg" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Müşteri Memnuniyeti Anketi</title>
+  <style>
+    body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fdfaf9;
+  color: #36150f;
+  max-width: 720px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 32px;
+  color: #61271c;
+  text-shadow: 0 1px 1px rgba(97, 39, 28, 0.2);
+}
+
+form {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 6px 20px rgba(97, 39, 28, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+}
+
+select,
+textarea,
+input[type="text"],
+input[type="number"] {
+  padding: 14px 16px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 15px;
+  background-color: #fff;
+  box-sizing: border-box;
+  resize: vertical;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+select:focus,
+textarea:focus,
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: #61271c;
+  box-shadow: 0 0 0 3px rgba(97, 39, 28, 0.1);
+  outline: none;
+}
+
+button {
+  background-color: #61271c;
+  color: #fff;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #43180a;
+  transform: translateY(-2px);
+}
+
+#shareLink {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+}
+
+  </style>
+</head>
+<body>
+  <h1>Müşteri Memnuniyeti Anketi</h1>
+  <form>
+    <label for="soru1">1. Ürün/hizmet beklentilerinizi karşıladı mı?</label>
+    <select id="soru1" name="soru1" required>
+      <option value="" disabled selected>Seçiniz</option>
+      <option value="tamamen">Evet, tamamen</option>
+      <option value="buyuk_olcude">Büyük ölçüde</option>
+      <option value="kismen">Kısmen</option>
+      <option value="hayir">Hayır</option>
+    </select>
+
+    <label for="soru2">2. Ürün/hizmet kalitesinden ne kadar memnunsunuz?</label>
+    <select id="soru2" name="soru2" required>
+      <option value="" disabled selected>Seçiniz</option>
+      <option value="cok_memnunum">Çok memnunum</option>
+      <option value="memnunum">Memnunum</option>
+      <option value="kararsizim">Kararsızım</option>
+      <option value="memnun_degilim">Memnun değilim</option>
+    </select>
+
+    <label for="soru3">3. Ürünü/hizmeti tekrar satın almayı düşünür müsünüz?</label>
+    <select id="soru3" name="soru3" required>
+      <option value="" disabled selected>Seçiniz</option>
+      <option value="kesinlikle">Kesinlikle evet</option>
+      <option value="belki">Belki</option>
+      <option value="dusrunum">Düşünüyorum</option>
+      <option value="hayir">Hayır</option>
+    </select>
+
+    <label for="soru4">4. Ürün/hizmetin fiyatını nasıl değerlendiriyorsunuz?</label>
+    <select id="soru4" name="soru4" required>
+      <option value="" disabled selected>Seçiniz</option>
+      <option value="cok_uygun">Çok uygun</option>
+      <option value="uygun">Uygun</option>
+      <option value="pahali">Biraz pahalı</option>
+      <option value="cok_pahali">Çok pahalı</option>
+    </select>
+
+    <label for="soru5">5. Ürün/hizmetin teslim süresi beklentilerinizi karşıladı mı?</label>
+    <select id="soru5" name="soru5" required>
+      <option value="" disabled selected>Seçiniz</option>
+      <option value="evet">Evet</option>
+      <option value="kismen">Kısmen</option>
+      <option value="hayir">Hayır</option>
+    </select>
+
+    <label for="soru6">6. Ürün/hizmet ile ilgili yaşadığınız sorunları ne kadar hızlı çözüyoruz?</label>
+    <select id="soru6" name="soru6" required>
+      <option value="" disabled selected>Seçiniz</option>
+      <option value="cok_hizli">Çok hızlı</option>
+      <option value="hizli">Hızlı</option>
+      <option value="yavas">Yavaş</option>
+      <option value="cozulmedi">Çözülmedi</option>
+    </select>
+
+    <label for="soru7">7. Müşteri hizmetlerimizden memnun musunuz?</label>
+    <select id="soru7" name="soru7" required>
+      <option value="" disabled selected>Seçiniz</option>
+      <option value="cok_memnunum">Çok memnunum</option>
+      <option value="memnunum">Memnunum</option>
+      <option value="kararsizim">Kararsızım</option>
+      <option value="memnun_degilim">Memnun değilim</option>
+    </select>
+
+    <label for="soru8">8. Ürün/hizmetimizi arkadaşlarınıza veya aileye önerir misiniz? (0-10 arası puan)</label>
+    <input type="number" id="soru8" name="soru8" min="0" max="10" placeholder="0-10" required />
+
+    <label for="soru9">9. Ürün/hizmetle ilgili genel memnuniyetinizi nasıl değerlendirirsiniz?</label>
+    <select id="soru9" name="soru9" required>
+      <option value="" disabled selected>Seçiniz</option>
+      <option value="cok_memnun">Çok memnun</option>
+      <option value="memnun">Memnun</option>
+      <option value="kararsiz">Kararsız</option>
+      <option value="memnun_degil">Memnun değil</option>
+    </select>
+
+    <label for="soru10">10. Ürün/hizmetle ilgili başka öneri veya yorumlarınız varsa lütfen yazınız:</label>
+    <textarea id="soru10" name="soru10" rows="4" placeholder="Öneri veya yorumlarınızı yazınız..."></textarea>
+
+    <button type="submit">Gönder</button>
+  </form>
+  
+  <!-- indirme butonu vs. -->
+<div style="margin-top: 30px; text-align: center;">
+  <button type="button" onclick="downloadSurvey()">📝 Anketi JSON Olarak İndir</button>
+  <br><br>
+  <input type="text" id="shareLink" readonly style="width: 100%; padding: 10px; margin-top: 10px;" />
+  <button type="button" onclick="generateShareLink()">🔗 Paylaşılabilir Link Oluştur</button>
+</div>
+
+
+<script>
+  const formElement = document.querySelector("form");
+
+  // Form yapısını JSON olarak indir
+  function downloadSurvey() {
+    const surveyStructure = {
+      title: "Müşteri Memnuniyeti Anketi",
+      questions: []
+    };
+
+    const labels = formElement.querySelectorAll("label");
+    labels.forEach((label, i) => {
+      const inputName = label.getAttribute("for");
+      if (inputName) {
+        const input = formElement.querySelector(`[name="${inputName}"]`);
+        const question = {
+          id: inputName,
+          question: label.innerText,
+          type: input ? input.tagName.toLowerCase() : "unknown"
+        };
+        surveyStructure.questions.push(question);
+      }
+    });
+
+    const blob = new Blob([JSON.stringify(surveyStructure, null, 2)], { type: "application/json" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "musteri_memnuniyeti_anketi.json";
+    link.click();
+  }
+
+  // Paylaşılabilir link oluştur (örnek: kendi sayfanı host ettiğini varsayalım)
+  function generateShareLink() {
+    const baseUrl = window.location.origin + window.location.pathname;
+    const shareInput = document.getElementById("shareLink");
+    shareInput.value = baseUrl + "?share=1";
+    shareInput.select();
+    document.execCommand("copy");
+    alert("Paylaşım bağlantısı panoya kopyalandı!");
+  }
+</script>
+
+
+</body>
+</html>

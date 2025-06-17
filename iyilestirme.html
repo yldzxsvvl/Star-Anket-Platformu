@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+     <link rel="icon" href="sharfi.jpg" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>İyileştirme Önerisi Anketi</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fdfaf9;
+      color: #36150f;
+      margin: 0;
+      padding: 0;
+    }
+
+    #surveyWrapper {
+      max-width: 700px;
+      margin: 40px auto;
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(97, 39, 28, 0.15);
+    }
+
+    h1 {
+      text-align: center;
+      color: #61271c;
+      text-shadow: 0 1px 1px rgba(163, 106, 95, 0.3);
+      margin-bottom: 30px;
+      font-size: 32px;
+    }
+
+    .question-block {
+      margin-bottom: 30px;
+      border-bottom: 1px solid #e6d9d2;
+      padding-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    textarea, select {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 15px;
+      background-color: #fff;
+      transition: 0.3s;
+      box-sizing: border-box;
+      resize: vertical;
+    }
+
+    textarea:focus, select:focus {
+      border-color: #61271c;
+      box-shadow: 0 0 0 3px rgba(97, 39, 28, 0.1);
+      outline: none;
+    }
+
+    .radio-group {
+      margin-top: 10px;
+    }
+
+    .radio-group input {
+      margin-right: 6px;
+    }
+
+    button[type="submit"] {
+      margin-top: 20px;
+      padding: 14px 24px;
+      background-color: #61271c;
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #43180a;
+      transform: translateY(-2px);
+    }
+
+    #thankYou {
+      display: none;
+      text-align: center;
+      color: green;
+      font-weight: bold;
+      margin-top: 30px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="surveyWrapper">
+    <h1>🛠️ İyileştirme Önerisi Anketi</h1>
+    <form id="surveyForm">
+      <div class="question-block">
+        <label>1. Hizmet veya ürünümüzü geliştirmek için en önemli öneriniz nedir?</label>
+        <textarea rows="3" name="main_suggestion" required></textarea>
+      </div>
+
+      <div class="question-block">
+        <label>2. Müşteri hizmetleri deneyiminizi nasıl iyileştirebiliriz?</label>
+        <textarea rows="3" name="customer_service_improvement"></textarea>
+      </div>
+
+      <div class="question-block">
+        <label>3. Ürün kalitesini artırmak için ne tür değişiklikler yapılmalı?</label>
+        <textarea rows="3" name="product_quality_improvement"></textarea>
+      </div>
+
+      <div class="question-block">
+        <label>4. Hizmet hızımızı artırmak için ne önerirsiniz?</label>
+        <textarea rows="3" name="service_speed_improvement"></textarea>
+      </div>
+
+      <div class="question-block">
+        <label>5. Fiyatlandırma politikamız hakkında ne düşünüyorsunuz?</label>
+        <select name="pricing_opinion" required>
+          <option value="" disabled selected>Seçiniz</option>
+          <option value="1">1 - Çok Pahalı</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 - Çok Uygun</option>
+        </select>
+      </div>
+
+      <div class="question-block">
+        <label>6. Hizmet süreçlerinde sizi en çok zorlayan adım hangisidir?</label>
+        <textarea rows="3" name="most_difficult_step"></textarea>
+      </div>
+
+      <div class="question-block">
+        <label>7. Yeni eklememizi istediğiniz bir özellik veya hizmet var mı?</label>
+        <div class="radio-group">
+          <input type="radio" id="feature_yes" name="new_feature" value="Evet" />
+          <label for="feature_yes">Evet</label>
+          <input type="radio" id="feature_no" name="new_feature" value="Hayır" />
+          <label for="feature_no">Hayır</label>
+        </div>
+        <label>7.a Eğer evet ise, lütfen belirtiniz:</label>
+        <textarea rows="2" name="feature_details"></textarea>
+      </div>
+
+      <div class="question-block">
+        <label>8. Şikayet ve geri bildirim süreçlerimizi daha kolay hale getirmek için öneriniz var mı?</label>
+        <textarea rows="3" name="complaint_process_improvement"></textarea>
+      </div>
+
+      <div class="question-block">
+        <label>9. Müşteri sadakat programlarımızı nasıl daha cazip hale getirebiliriz?</label>
+        <textarea rows="3" name="loyalty_program_improvement"></textarea>
+      </div>
+
+      <div class="question-block">
+        <label>10. Genel olarak, bizimle ilgili en çok memnun olduğunuz alan nedir?</label>
+        <textarea rows="3" name="most_satisfactory_area"></textarea>
+      </div>
+
+      <button type="submit">📨 Gönder</button>
+    </form>
+
+    <div id="thankYou">Teşekkürler! Yanıtınız başarıyla alındı. 🙏</div>
+  </div>
+
+  <div id="shareDownload" style="margin-top: 30px; text-align: center;">
+  <button id="downloadBtn" style="margin: 10px; padding: 12px 20px; border-radius: 10px; background-color: #3d403f; color: #fff; border: none; font-weight: bold; cursor: pointer;">📥 JSON olarak indir</button>
+  
+  <button id="generateLinkBtn" style="margin: 10px; padding: 12px 20px; border-radius: 10px; background-color: #614e1c; color: #fff; border: none; font-weight: bold; cursor: pointer;">🔗 Paylaşılabilir bağlantı oluştur</button>
+  
+  <div id="shareLink" style="margin-top: 15px; display: none;">
+    <input type="text" id="shareableURL" readonly style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 8px; margin-top: 10px;" />
+    <p style="font-size: 14px; color: #555;">Bağlantıyı kopyalayarak başkalarıyla paylaşabilirsiniz.</p>
+  </div>
+</div>
+
+<script>
+  const downloadBtn = document.getElementById('downloadBtn');
+  const generateLinkBtn = document.getElementById('generateLinkBtn');
+  const shareLinkDiv = document.getElementById('shareLink');
+  const shareableURL = document.getElementById('shareableURL');
+
+  const emptyFormStructure = {
+    main_suggestion: "",
+    customer_service_improvement: "",
+    product_quality_improvement: "",
+    service_speed_improvement: "",
+    pricing_opinion: "",
+    most_difficult_step: "",
+    new_feature: "",
+    feature_details: "",
+    complaint_process_improvement: "",
+    loyalty_program_improvement: "",
+    most_satisfactory_area: ""
+  };
+
+  downloadBtn.addEventListener('click', () => {
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(emptyFormStructure, null, 2));
+    const dlAnchor = document.createElement('a');
+    dlAnchor.setAttribute("href", dataStr);
+    dlAnchor.setAttribute("download", "iyilestirme_anketi.json");
+    dlAnchor.click();
+  });
+
+  generateLinkBtn.addEventListener('click', () => {
+    const base = window.location.href.split('?')[0];
+    const query = encodeURIComponent(JSON.stringify(emptyFormStructure));
+    const link = `${base}?anket=${query}`;
+    shareableURL.value = link;
+    shareLinkDiv.style.display = 'block';
+  });
+
+
+    const form = document.getElementById('surveyForm');
+    const thankYou = document.getElementById('thankYou');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const entries = Object.fromEntries(formData.entries());
+
+      console.log("Gönderilen veri:", entries);
+
+      form.style.display = 'none';
+      thankYou.style.display = 'block';
+    });
+  </script>
+  
+  
+
+
+</body>
+</html>

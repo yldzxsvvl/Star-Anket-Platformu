@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+     <link rel="icon" href="sharfi.jpg" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Müşteri Persona Anketi</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fdfaf9;
+      color: #36150f;
+      margin: 0;
+      padding: 0;
+    }
+
+    #surveyWrapper {
+      max-width: 700px;
+      margin: 40px auto;
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(97, 39, 28, 0.15);
+    }
+
+    h1 {
+      text-align: center;
+      color: #61271c;
+      text-shadow: 0 1px 1px rgba(163, 106, 95, 0.3);
+      margin-bottom: 30px;
+      font-size: 32px;
+    }
+
+    .question-block {
+      margin-bottom: 30px;
+      border-bottom: 1px solid #e6d9d2;
+      padding-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    textarea, select, input[type="text"], input[type="number"], input[type="email"] {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 15px;
+      background-color: #fff;
+      transition: 0.3s;
+      box-sizing: border-box;
+      resize: vertical;
+    }
+
+    textarea:focus, select:focus, input:focus {
+      border-color: #61271c;
+      box-shadow: 0 0 0 3px rgba(97, 39, 28, 0.1);
+      outline: none;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 14px 24px;
+      background-color: #61271c;
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #43180a;
+      transform: translateY(-2px);
+    }
+
+    #shareLink {
+      margin-top: 10px;
+      padding: 10px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="surveyWrapper">
+    <h1>👤 Müşteri Persona Anketi</h1>
+    <form id="anketForm">
+      <div class="question-block">
+        <label for="isim">Adınız ve Soyadınız:</label>
+        <input type="text" id="isim" name="isim" required />
+      </div>
+
+      <div class="question-block">
+        <label for="yas">Yaşınız:</label>
+        <input type="number" id="yas" name="yas" required />
+      </div>
+
+      <div class="question-block">
+        <label for="cinsiyet">Cinsiyetiniz:</label>
+        <select id="cinsiyet" name="cinsiyet" required>
+          <option value="" disabled selected>Seçiniz</option>
+          <option value="kadin">Kadın</option>
+          <option value="erkek">Erkek</option>
+          <option value="diger">Diğer</option>
+          <option value="belirtmek_istemiyorum">Belirtmek istemiyorum</option>
+        </select>
+      </div>
+
+      <div class="question-block">
+        <label for="meslek">Mesleğiniz:</label>
+        <input type="text" id="meslek" name="meslek" required />
+      </div>
+
+      <div class="question-block">
+        <label for="egitim">Eğitim Durumunuz:</label>
+        <select id="egitim" name="egitim" required>
+          <option value="" disabled selected>Seçiniz</option>
+          <option value="ilkokul">İlkokul</option>
+          <option value="lise">Lise</option>
+          <option value="universite">Üniversite</option>
+          <option value="yuksek_lisans">Yüksek Lisans</option>
+          <option value="doktora">Doktora</option>
+        </select>
+      </div>
+
+      <div class="question-block">
+        <label for="ilgi">İlgi alanlarınız nelerdir?</label>
+        <textarea id="ilgi" name="ilgi" rows="3" placeholder="Örn: Seyahat, teknoloji, moda..."></textarea>
+      </div>
+
+      <div class="question-block">
+        <label for="hedef">Hayatınızdaki en önemli hedefiniz nedir?</label>
+        <textarea id="hedef" name="hedef" rows="3"></textarea>
+      </div>
+
+      <div class="question-block">
+        <label for="zorluk">Günlük hayatta karşılaştığınız en büyük zorluk nedir?</label>
+        <textarea id="zorluk" name="zorluk" rows="3"></textarea>
+      </div>
+
+      <div class="question-block">
+        <label for="medya">Hangi sosyal medya platformlarını en çok kullanıyorsunuz?</label>
+        <textarea id="medya" name="medya" rows="2"></textarea>
+      </div>
+
+      <div class="question-block">
+        <label for="satinalma">Bir ürünü satın alırken en çok neye dikkat edersiniz?</label>
+        <textarea id="satinalma" name="satinalma" rows="3"></textarea>
+      </div>
+
+      <button type="submit">📨 Gönder</button>
+      <button type="button" onclick="indirmeYap()">Anketi JSON olarak indir</button>
+      <button type="button" onclick="linkOlustur()">Paylaşılabilir link oluştur</button>
+      <input type="text" id="shareLink" readonly placeholder="Link burada görünecek..." />
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('anketForm');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert("Teşekkürler! Yanıtınız kaydedildi.");
+    });
+
+    function getFormData() {
+      const data = {};
+      Array.from(form.elements).forEach(el => {
+        if (el.id && el.type !== 'submit' && el.type !== 'button') {
+          data[el.id] = el.value;
+        }
+      });
+      return data;
+    }
+
+    function indirmeYap() {
+      const data = getFormData();
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'musteri_persona_anketi.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function linkOlustur() {
+      const data = getFormData();
+      const baseUrl = window.location.origin + window.location.pathname;
+      const encoded = encodeURIComponent(JSON.stringify(data));
+      const fullUrl = `${baseUrl}?anket=${encoded}`;
+      const input = document.getElementById("shareLink");
+      input.value = fullUrl;
+      input.select();
+      document.execCommand("copy");
+      alert("Link panoya kopyalandı!");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+     <link rel="icon" href="sharfi.jpg" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mülakat Sonrası Anket</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fdfaf9;
+      color: #36150f;
+      margin: 0;
+      padding: 0;
+    }
+
+    #surveyWrapper {
+      max-width: 700px;
+      margin: 40px auto;
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(97, 39, 28, 0.15);
+    }
+
+    h1 {
+      text-align: center;
+      color: #61271c;
+      text-shadow: 0 1px 1px rgba(163, 106, 95, 0.3);
+      margin-bottom: 30px;
+      font-size: 32px;
+    }
+
+    .question-block {
+      margin-bottom: 30px;
+      border-bottom: 1px solid #e6d9d2;
+      padding-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    textarea, select, input[type="text"], input[type="email"], input[type="number"] {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 15px;
+      background-color: #fff;
+      transition: 0.3s;
+      box-sizing: border-box;
+      resize: vertical;
+    }
+
+    textarea:focus, select:focus, input:focus {
+      border-color: #61271c;
+      box-shadow: 0 0 0 3px rgba(97, 39, 28, 0.1);
+      outline: none;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 14px 24px;
+      background-color: #61271c;
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #43180a;
+      transform: translateY(-2px);
+    }
+
+    #shareLink {
+      margin-top: 10px;
+      padding: 10px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="surveyWrapper">
+    <h1>📝 Mülakat Sonrası Anketi</h1>
+    <form id="anketForm">
+      <div class="question-block">
+        <label for="ad">Adınız ve Soyadınız:</label>
+        <input type="text" id="ad" name="ad" required />
+      </div>
+
+      <div class="question-block">
+        <label for="tarih">Mülakat Tarihi:</label>
+        <input type="text" id="tarih" name="tarih" placeholder="GG/AA/YYYY" required />
+      </div>
+
+      <div class="question-block">
+        <label for="pozisyon">Görüşme Yapılan Pozisyon:</label>
+        <input type="text" id="pozisyon" name="pozisyon" required />
+      </div>
+
+      <div class="question-block">
+        <label for="iletisim">İletişim süreci hakkında ne düşünüyorsunuz?</label>
+        <select id="iletisim" name="iletisim" required>
+          <option value="" disabled selected>Seçiniz</option>
+          <option value="cok_iyi">Çok iyi</option>
+          <option value="iyi">İyi</option>
+          <option value="orta">Orta</option>
+          <option value="zayif">Zayıf</option>
+        </select>
+      </div>
+
+      <div class="question-block">
+        <label for="bilgi">Pozisyon hakkında yeterli bilgi verildi mi?</label>
+        <select id="bilgi" name="bilgi" required>
+          <option value="" disabled selected>Seçiniz</option>
+          <option value="evet">Evet</option>
+          <option value="kismen">Kısmen</option>
+          <option value="hayir">Hayır</option>
+        </select>
+      </div>
+
+      <div class="question-block">
+        <label for="ortam">Mülakat ortamı nasıldı?</label>
+        <textarea id="ortam" name="ortam" rows="3"></textarea>
+      </div>
+
+      <div class="question-block">
+        <label for="degerlendirme">Genel değerlendirme süreci hakkında düşünceleriniz:</label>
+        <textarea id="degerlendirme" name="degerlendirme" rows="3"></textarea>
+      </div>
+
+      <div class="question-block">
+        <label for="oneriler">Geliştirmemiz için önerileriniz:</label>
+        <textarea id="oneriler" name="oneriler" rows="3"></textarea>
+      </div>
+
+      <button type="submit">Gönder</button>
+      <button type="button" onclick="indirmeYap()">Anketi JSON olarak indir</button>
+      <button type="button" onclick="linkOlustur()">Paylaşılabilir link oluştur</button>
+      <input type="text" id="shareLink" readonly placeholder="Link burada görünecek..." />
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('anketForm');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert("Teşekkürler! Yanıtınız kaydedildi.");
+    });
+
+    function getFormData() {
+      const data = {};
+      Array.from(form.elements).forEach(el => {
+        if (el.id && el.type !== 'submit' && el.type !== 'button') {
+          data[el.id] = el.value;
+        }
+      });
+      return data;
+    }
+
+    function indirmeYap() {
+      const data = getFormData();
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'mulakat_sonrasi_anketi.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function linkOlustur() {
+      const data = getFormData();
+      const baseUrl = window.location.origin + window.location.pathname;
+      const encoded = encodeURIComponent(JSON.stringify(data));
+      const fullUrl = `${baseUrl}?anket=${encoded}`;
+      const input = document.getElementById("shareLink");
+      input.value = fullUrl;
+      input.select();
+      document.execCommand("copy");
+      alert("Link panoya kopyalandı!");
+    }
+  </script>
+</body>
+</html>

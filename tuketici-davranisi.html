@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+     <link rel="icon" href="sharfi.jpg" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tüketici Davranışı Anketi</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fdfaf9;
+      color: #36150f;
+      max-width: 720px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 32px;
+      color: #61271c;
+      text-shadow: 0 1px 1px rgba(97, 39, 28, 0.2);
+    }
+
+    form {
+      background-color: #ffffff;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 6px 20px rgba(97, 39, 28, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    select,
+    textarea,
+    input[type="text"],
+    input[type="number"] {
+      padding: 14px 16px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 15px;
+      background-color: #fff;
+      box-sizing: border-box;
+      resize: vertical;
+      transition: border 0.3s, box-shadow 0.3s;
+    }
+
+    select:focus,
+    textarea:focus,
+    input[type="text"]:focus,
+    input[type="number"]:focus {
+      border-color: #61271c;
+      box-shadow: 0 0 0 3px rgba(97, 39, 28, 0.1);
+      outline: none;
+    }
+
+    button {
+      background-color: #61271c;
+      color: #fff;
+      padding: 14px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background-color: #43180a;
+      transform: translateY(-2px);
+    }
+
+    #shareLink {
+      margin-top: 10px;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tüketici Davranışı Anketi</h1>
+  <form id="anketForm">
+    <label for="soru1">1. Alışverişlerinizi daha çok nereden yaparsınız?</label>
+    <select id="soru1" required>
+      <option value="" disabled selected>Seçiniz</option>
+      <option value="magaza">Fiziksel mağaza</option>
+      <option value="internet">İnternet üzerinden</option>
+      <option value="ikisi">Her ikisi</option>
+    </select>
+
+    <label for="soru2">2. Bir ürün alırken en çok neye dikkat edersiniz?</label>
+    <select id="soru2" required>
+      <option value="" disabled selected>Seçiniz</option>
+      <option value="fiyat">Fiyat</option>
+      <option value="kalite">Kalite</option>
+      <option value="marka">Marka</option>
+      <option value="yorumlar">Kullanıcı yorumları</option>
+    </select>
+
+    <label for="soru3">3. Ne sıklıkla internetten alışveriş yaparsınız?</label>
+    <select id="soru3" required>
+      <option value="" disabled selected>Seçiniz</option>
+      <option value="haftada">Haftada birkaç kez</option>
+      <option value="ayda">Ayda birkaç kez</option>
+      <option value="nadiren">Nadiren</option>
+      <option value="hic">Hiç</option>
+    </select>
+
+    <label for="soru4">4. Ürün iadesi yapma süreciniz nasıldı?</label>
+    <select id="soru4" required>
+      <option value="" disabled selected>Seçiniz</option>
+      <option value="cok_kolay">Çok kolay</option>
+      <option value="kolay">Kolay</option>
+      <option value="zor">Zor</option>
+      <option value="yapmadim">İade yapmadım</option>
+    </select>
+
+    <label for="soru5">5. Hangi platformları alışveriş için kullanıyorsunuz?</label>
+    <textarea id="soru5" rows="3" placeholder="Örneğin: Trendyol, Hepsiburada, Amazon..." required></textarea>
+
+    <label for="soru6">6. Reklamlar satın alma kararınızı etkiler mi?</label>
+    <select id="soru6" required>
+      <option value="" disabled selected>Seçiniz</option>
+      <option value="evet">Evet</option>
+      <option value="bazen">Bazen</option>
+      <option value="hayir">Hayır</option>
+    </select>
+
+    <label for="soru7">7. Favori markanızı neden tercih ediyorsunuz?</label>
+    <textarea id="soru7" rows="3" placeholder="Kısaca açıklayınız..." required></textarea>
+
+    <label for="soru8">8. Alışveriş yaparken sosyal medya yorumlarını dikkate alır mısınız?</label>
+    <select id="soru8" required>
+      <option value="" disabled selected>Seçiniz</option>
+      <option value="herzaman">Her zaman</option>
+      <option value="arada">Arada sırada</option>
+      <option value="asla">Asla</option>
+    </select>
+
+    <label for="soru9">9. Son bir ay içinde kaç ürün satın aldınız?</label>
+    <input type="number" id="soru9" min="0" max="100" placeholder="Örn: 5" required>
+
+    <label for="soru10">10. Genel olarak tüketici olarak kendinizi nasıl tanımlarsınız?</label>
+    <select id="soru10" required>
+      <option value="" disabled selected>Seçiniz</option>
+      <option value="bilincli">Bilinçli ve araştırmacı</option>
+      <option value="duygusal">Duygusal karar veririm</option>
+      <option value="kampanya_avcisi">İndirim ve kampanya odaklı</option>
+      <option value="rastgele">Genellikle rastgele alışveriş yaparım</option>
+    </select>
+
+    <button type="submit">Gönder</button>
+
+        <button type="button" onclick="indirmeYap()">Anketi JSON olarak indir</button>
+    <button type="button" onclick="linkOlustur()">Paylaşılabilir link oluştur</button>
+    <input type="text" id="shareLink" readonly placeholder="Link burada görünecek..." />
+
+  </form>
+
+  <script>
+  function getFormData() {
+    const form = document.getElementById('anketForm');
+    const data = {};
+    Array.from(form.elements).forEach(el => {
+      if (el.id && el.type !== 'submit' && el.type !== 'button') {
+        data[el.id] = el.value;
+      }
+    });
+    return data;
+  }
+
+  function indirmeYap() {
+    const data = getFormData();
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'tuketici_davranisi_anketi.json';
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  function linkOlustur() {
+    const data = getFormData();
+    const baseUrl = window.location.origin + window.location.pathname;
+    const encoded = encodeURIComponent(JSON.stringify(data));
+    const fullUrl = `${baseUrl}?anket=${encoded}`;
+    const input = document.getElementById("shareLink");
+    input.value = fullUrl;
+    input.select();
+    document.execCommand("copy");
+    alert("Link panoya kopyalandı!");
+  }
+</script>
+
+</body>
+</html>
