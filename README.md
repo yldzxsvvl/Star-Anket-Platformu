@@ -66,4 +66,5 @@ StarAnketPlatformu/
 ├── birinci.css                   → Ortak stil dosyası
 ├── script.js                     → JavaScript etkileşimleri
 ├── kadın.jpg.jpg, sharfi.jpg     → Görseller
+├── admin.html    → Admin girişi
 ```
